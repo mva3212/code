@@ -1,0 +1,15 @@
+<%= simple_form_for([@user,@journal]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :user_id, :as => :hidden, :value => @user.id  %>
+    <%= f.association :journal_type %>
+    <%= f.input :is_primary, :label => "Set as primary journal? Note: this will display as your default user journal" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

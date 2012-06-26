@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_path, :alert => exception.message
-  end
+		if exception.subject.class.name == "Journal"
+			redirect_to new_user_session_path, :alert => "Please login to create a Journal" 
+		else
+			redirect_to root_path, :alert => exception.message
+		end
+	end
 end

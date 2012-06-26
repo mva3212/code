@@ -1,0 +1,8 @@
+
+<h2> Welcome to your dashboard </h2>
+
+My Journals:
+<% @journals.each do |j| %>
+  <p>Journal: <%=link_to j.name, [@user,j] %></p>
+<% end %>
+
