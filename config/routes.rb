@@ -12,4 +12,11 @@ Harvestgeek::Application.routes.draw do
 		resources :journals 
 	end
 	
+	resources :posts
+	
+	
+	
+	match "/users/:id/journals/", :to => "journals#index"
+	match "/journals/:id", :to => "journals#show"
+	
 end

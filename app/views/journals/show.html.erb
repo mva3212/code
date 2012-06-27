@@ -25,6 +25,4 @@
   <%= @journal.is_primary %>
 </p>
 
-
-<%= link_to 'Edit', edit_user_journal_path(@user,@journal) %> |
-<%= link_to 'Back', user_journals_path %>
+<%= link_to 'New Post', new_post_path( :jid => @journal.id )%>

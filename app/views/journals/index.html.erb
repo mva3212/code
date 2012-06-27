@@ -19,13 +19,10 @@
     <td><%= journal.user %></td>
     <td><%= journal.journal_type.name %></td>
     <td><%= journal.is_primary %></td>
-    <td><%= link_to 'Show', user_journal_path(@user,@journal) %></td>
-    <td><%= link_to 'Edit', edit_journal_path(journal) %></td>
-    <td><%= link_to 'Destroy', journal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Journal', new_journal_path %>
+<%= link_to 'New Journal', new_user_journal_path %>

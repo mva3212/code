@@ -11,7 +11,7 @@ public
   # GET /journals.xml
   def index
     @journals = Journal.all
-    respond_with(@user,@journal)
+    respond_with(@user,@journals)
   end
 
   # GET /journals/1

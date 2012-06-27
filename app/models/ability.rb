@@ -6,9 +6,9 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :default
-			can :create, :read, Journal
+			can :create, :read, Journal, Post
 		else 
-			can :read, Journal
+			can :read, Journal, Post
 		end
   end
     # Define abilities for the passed in user here. For example:

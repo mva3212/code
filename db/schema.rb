@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120626154503) do
+ActiveRecord::Schema.define(:version => 20120627023409) do
 
   create_table "journal_types", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(:version => 20120626154503) do
 
   add_index "journals", ["journal_type_id"], :name => "index_journals_on_journal_type_id"
   add_index "journals", ["user_id"], :name => "index_journals_on_user_id"
+
+  create_table "posts", :force => true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.integer  "journal_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "posts", ["journal_id"], :name => "index_posts_on_journal_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
