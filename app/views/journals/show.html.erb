@@ -1,28 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @journal.name %>
-</p>
 
-<p>
-  <b>Description:</b>
-  <%= @journal.description %>
-</p>
+<h2><%= link_to 'Create a New Post', new_post_path( :jid => @journal.id )%></h2>
 
-<p>
-  <b>User:</b>
-  <%= @journal.user %>
-</p>
+<% if @posts.nil? %>
+	<p> There is nothing here yet </p>
+<% else %>
+  <div class = "span6">
+		<% @posts.each do |p| %>		
+			<% if p.nil? %>
+			<% else %>
+				<h5>  <%= p.name %>  </h5>		
+				<p>  <%= p.content %>  </p>	
+			<% end %>
+		<% end %>
+	</div>		
+<% end %>
 
-<p>
-  <b>Journal type:</b>
-  <%= @journal.journal_type %>
-</p>
-
-<p>
-  <b>Is primary:</b>
-  <%= @journal.is_primary %>
-</p>
-
-<%= link_to 'New Post', new_post_path( :jid => @journal.id )%>

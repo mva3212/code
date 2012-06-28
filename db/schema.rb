@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120627023409) do
+ActiveRecord::Schema.define(:version => 20120627210416) do
+
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "journal_types", :force => true do |t|
     t.string   "name"
@@ -28,9 +39,11 @@ ActiveRecord::Schema.define(:version => 20120627023409) do
     t.boolean  "is_primary"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "slug"
   end
 
   add_index "journals", ["journal_type_id"], :name => "index_journals_on_journal_type_id"
+  add_index "journals", ["slug", "user_id"], :name => "index_journals_on_slug_and_user_id"
   add_index "journals", ["user_id"], :name => "index_journals_on_user_id"
 
   create_table "posts", :force => true do |t|
@@ -39,9 +52,11 @@ ActiveRecord::Schema.define(:version => 20120627023409) do
     t.integer  "journal_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
 
   add_index "posts", ["journal_id"], :name => "index_posts_on_journal_id"
+  add_index "posts", ["slug", "journal_id"], :name => "index_posts_on_slug_and_journal_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -68,10 +83,12 @@ ActiveRecord::Schema.define(:version => 20120627023409) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
+    t.string   "slug"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug"
 
   create_table "users_roles", :id => false, :force => true do |t|
     t.integer "user_id"

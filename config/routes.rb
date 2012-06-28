@@ -15,8 +15,7 @@ Harvestgeek::Application.routes.draw do
 	resources :posts
 	
 	
-	
-	match "/users/:id/journals/", :to => "journals#index"
+	match "/journals/:id", :to => "journals#show", :action => :show, :as => "journal"
 	match "/journals/:id", :to => "journals#show"
 	
 end

@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
-	rolify
+	extend FriendlyId
+  friendly_id :name, use: [:slugged,:history]
+  
+  rolify
+	
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

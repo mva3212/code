@@ -20,3 +20,5 @@ gem 'simple_form'
 gem 'country_select'
 gem 'has_scope'
 gem 'high_voltage'
+gem 'friendly_id'
+

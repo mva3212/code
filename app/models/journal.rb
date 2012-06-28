@@ -1,4 +1,6 @@
 class Journal < ActiveRecord::Base
+	extend FriendlyId
+  friendly_id :name, use: [:slugged,:history]
   resourcify
   belongs_to :user
   belongs_to :journal_type

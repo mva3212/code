@@ -14,6 +14,9 @@ public
   # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
+    if request.path != post_path(@post)
+			redirect_to @post, status: :moved_permanently
+		end
     respond_with(@post)
   end
 

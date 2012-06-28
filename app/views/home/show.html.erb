@@ -1,8 +1,10 @@
 
 <h2> Welcome to your dashboard </h2>
 
-My Journals:
+<h4> Add posts or Edit and Existing Journal: </h4>
 <% @journals.each do |j| %>
   <p>Journal: <%=link_to j.name, j %></p>
 <% end %>
+
+<h4> Or <%= link_to "Create a new one", new_user_journal_path([@user]) %> </h4>
 

@@ -6,6 +6,7 @@ private
 def set_current_user
 	@user = current_user
 end
+
 public	
   # GET /journals
   # GET /journals.xml
@@ -18,6 +19,10 @@ public
   # GET /journals/1.xml
   def show
     @journal = Journal.find(params[:id])
+    @posts = Post.find(:all, :conditions => { :journal_id => @journal.id })
+    if request.path != journal_path(@journal)
+			redirect_to @journal, status: :moved_permanently
+		end
     respond_with(@journal)
   end
 
