@@ -11,7 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120627210416) do
+ActiveRecord::Schema.define(:version => 20120708012354) do
+
+  create_table "climates", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "farms", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "region_fk"
+    t.integer  "state_fk"
+    t.integer  "user_fk"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -44,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20120627210416) do
 
   add_index "journals", ["journal_type_id"], :name => "index_journals_on_journal_type_id"
   add_index "journals", ["slug", "user_id"], :name => "index_journals_on_slug_and_user_id"
+  add_index "journals", ["slug"], :name => "index_journals_on_slug"
   add_index "journals", ["user_id"], :name => "index_journals_on_user_id"
 
   create_table "posts", :force => true do |t|
@@ -58,6 +84,16 @@ ActiveRecord::Schema.define(:version => 20120627210416) do
   add_index "posts", ["journal_id"], :name => "index_posts_on_journal_id"
   add_index "posts", ["slug", "journal_id"], :name => "index_posts_on_slug_and_journal_id"
 
+  create_table "regions", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "climate_id"
+    t.integer  "country_id"
+    t.string   "code"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -68,6 +104,13 @@ ActiveRecord::Schema.define(:version => 20120627210416) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "states", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
