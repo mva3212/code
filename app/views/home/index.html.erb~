@@ -2,4 +2,4 @@
 <% @journals.each do |j| %>
   <p>Journal: <%=link_to j.name, j %></p>
 <% end %>
-<p>Message: <%= @text %></p>
+<p>Message: <%=j.text%></p>

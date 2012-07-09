@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def index
     @users = User.all
     @journals = Journal.find(:all)
+	@text = "HELLO"
   end
   
   def show

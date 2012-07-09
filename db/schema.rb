@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120708012354) do
+ActiveRecord::Schema.define(:version => 20120708220156) do
 
   create_table "climates", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,33 @@ ActiveRecord::Schema.define(:version => 20120708012354) do
     t.string   "code"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "crop_strains", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "crop_type_id"
+    t.string   "extra_info"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "crop_types", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "crops", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "planted_date"
+    t.integer  "crop_strain_id"
+    t.integer  "seed_count"
+    t.integer  "farm_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "farms", :force => true do |t|
@@ -48,6 +75,32 @@ ActiveRecord::Schema.define(:version => 20120708012354) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "harvest_details", :force => true do |t|
+    t.string   "name"
+    t.string   "summary"
+    t.datetime "harvest_date"
+    t.decimal  "total_wet_yield"
+    t.decimal  "total_dry_yield"
+    t.integer  "yield_unit_id"
+    t.string   "notes"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "journal_crops", :force => true do |t|
+    t.integer  "journal_id"
+    t.integer  "crop_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "journal_farms", :force => true do |t|
+    t.integer  "journal_id"
+    t.integer  "farm_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "journal_types", :force => true do |t|
     t.string   "name"
@@ -110,6 +163,13 @@ ActiveRecord::Schema.define(:version => 20120708012354) do
     t.string   "code"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "units", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
