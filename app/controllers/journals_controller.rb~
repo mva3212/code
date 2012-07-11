@@ -20,7 +20,7 @@ public
   def show
     @journal = Journal.find(params[:id])
     @posts = Post.find(:all, :conditions => { :journal_id => @journal.id })
-    if request.path != (journal_path(@journal) )
+    if request.path != (journal_path(@journal) || user_journal_path(@user,@journal))
 			redirect_to @journal, status: :moved_permanently
 		end
     respond_with(@journal)

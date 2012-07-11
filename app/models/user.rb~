@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   private
   def default_role
-    self.add_role(:default)
+    self.add_role :default
   end
 	
   # Include default devise modules. Others available are:
