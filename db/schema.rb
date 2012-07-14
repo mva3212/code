@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120708220156) do
+ActiveRecord::Schema.define(:version => 20120711193947) do
 
   create_table "climates", :force => true do |t|
     t.string   "name"
@@ -187,11 +187,17 @@ ActiveRecord::Schema.define(:version => 20120708220156) do
     t.datetime "updated_at",                             :null => false
     t.string   "name"
     t.string   "slug"
+    t.string   "city"
+    t.integer  "state_id"
+    t.string   "zip"
+    t.integer  "country_id"
   end
 
+  add_index "users", ["country_id"], :name => "index_users_on_country_id"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug"
+  add_index "users", ["state_id"], :name => "index_users_on_state_id"
 
   create_table "users_roles", :id => false, :force => true do |t|
     t.integer "user_id"
