@@ -17,7 +17,7 @@ gem "bootstrap-sass", ">= 2.0.3"
 gem 'responders'
 gem 'paperclip'
 gem 'simple_form'
-gem 'country-select'
+gem 'country_select'
 gem 'has_scope'
 gem 'high_voltage'
 gem 'friendly_id'

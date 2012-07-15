@@ -1,0 +1,8 @@
+class AddDetailsToUsers < ActiveRecord::Migration
+  def change
+    add_column :users, :city, :string
+		add_column :users, :state, :references
+		add_column :users, :zip, :string
+		add_column :users, :country, :references
+  end
+end
