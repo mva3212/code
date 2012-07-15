@@ -14,9 +14,9 @@ Harvestgeek::Application.routes.draw do
 	
 	resources :posts
 	
+	match "/crud_tables/showparams/:message", :to => "crud_tables#showparams"
 	match "/journals/:id", :to => "journals#show", :action => :show, :as => "journal"
  
-	match "/:controller/:action", :to => ":controller#:action"
+	match "/:controller/:action/", :to => ":controller#:action"
 	 
-	
 end

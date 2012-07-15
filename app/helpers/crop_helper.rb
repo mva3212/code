@@ -1,0 +1,2 @@
+module CropHelper
+end

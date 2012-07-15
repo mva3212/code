@@ -1,0 +1,21 @@
+<h1>Listing crops</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @crops.each do |crop| %>
+  <tr>
+    <td><%= link_to 'Show', crop %></td>
+    <td><%= link_to 'Edit', edit_crop_path(crop) %></td>
+    <td><%= link_to 'Destroy', crop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Crop', new_crop_path %>
