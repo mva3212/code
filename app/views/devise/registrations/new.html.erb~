@@ -22,7 +22,7 @@
 	<p><%= f.label :zip %>
 	<%= f.text_field :zip %></p>
 
-	<%= f.input :country, :priority => [ "United States,Canada,Australia" ] %>
+	<%= f.input :country, :priority => [ "United States" ] %>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>

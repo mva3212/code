@@ -1,6 +1,8 @@
 Harvestgeek::Application.routes.draw do
   
 
+  resources :locations
+
   authenticated :user do
     root :to => 'home#show'
   end
@@ -14,8 +16,10 @@ Harvestgeek::Application.routes.draw do
 	
 	resources :posts
 	
-#	match "/journals/:id", :to => "journals#show", :action => :show, :as => "journal"
-
-
+	match "/journals/:id", :to => "journals#show", :action => :show, :as => "journal"
+ 
+	match "/crud_tables/index", :to => "crud_tables#index"
 	
+	match "/dailyjournals/:day", :to => "journals#showbyday"
+	 match "/crud_tables/showparams/:message", :to => "crud_tables#showparams"
 end

@@ -8,6 +8,8 @@ def set_current_user
 end
 
 public	
+
+
   # GET /journals
   # GET /journals.xml
   def index
@@ -27,8 +29,9 @@ public
   end
 
   # GET /journals/new
-  # GET /journals/new.xml
-  def new
+  # GET /journals/new.xm
+
+	def new
 		@user = current_user
     @journal = Journal.new(:user_id => @user.id)
     respond_with(@user,@journal)
