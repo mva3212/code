@@ -16,8 +16,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 	validates_presence_of :name, :email, :password, :password_confirmation
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :city, :state_id, :zip, :country_id,:country
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :street, :city, :state_id,
+	 :zip, :country_id, :country,  :latitude, :longitude
   belongs_to :state
 	belongs_to :country
+	
+	def address
+ 	 [street, city, state, zip, country].compact.join(', ')
+	end
+	def address_changed?
+ 	 street_changed? || city_changed? || state_changed? ||  zip_changed || country_changed?
+	end
+
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed? 
 
 end

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+
+<h2><%= link_to 'Create a New Post', new_post_path( :jid => @journal.id )%></h2>
+
+<% if @posts.nil? %>
+	<p> There is nothing here yet </p>
+<% else %>
+  <div class = "span6">
+		<% @posts.each do |p| %>		
+			<% if p.nil? %>
+			<% else %>
+				<h5>  <%= p.name %>  </h5>		
+				<p>  <%= p.content %>  </p>	
+			<% end %>
+		<% end %>
+	</div>		
+<% end %>
+

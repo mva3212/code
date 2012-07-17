@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120711193947) do
+ActiveRecord::Schema.define(:version => 20120716011018) do
 
   create_table "climates", :force => true do |t|
     t.string   "name"
@@ -125,6 +125,14 @@ ActiveRecord::Schema.define(:version => 20120711193947) do
   add_index "journals", ["slug"], :name => "index_journals_on_slug"
   add_index "journals", ["user_id"], :name => "index_journals_on_user_id"
 
+  create_table "locations", :force => true do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "name"
     t.text     "content"
@@ -191,6 +199,9 @@ ActiveRecord::Schema.define(:version => 20120711193947) do
     t.integer  "state_id"
     t.string   "zip"
     t.integer  "country_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "street"
   end
 
   add_index "users", ["country_id"], :name => "index_users_on_country_id"

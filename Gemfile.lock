@@ -60,6 +60,7 @@ GEM
       factory_girl (~> 3.5.0)
       railties (>= 3.0.0)
     friendly_id (4.0.7)
+    geocoder (1.1.2)
     has_scope (0.5.1)
     high_voltage (1.1.1)
     hike (1.2.1)
@@ -161,6 +162,7 @@ DEPENDENCIES
   email_spec (>= 1.2.1)
   factory_girl_rails (>= 3.3.0)
   friendly_id
+  geocoder
   has_scope
   high_voltage
   jquery-rails
