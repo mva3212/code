@@ -20,4 +20,5 @@ Harvestgeek::Application.routes.draw do
  
 	match "/crud_tables/index", :to => "crud_tables#index"
 	
+	
 end

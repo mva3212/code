@@ -8,7 +8,7 @@ class Ability
     elsif user.has_role? :default
 			can [:manage], [Journal, Post], :user_id =>user.id			
 		else
-			can :manage, :all
+			can :read, :all
 		end
   end
     # Define abilities for the passed in user here. For example:
