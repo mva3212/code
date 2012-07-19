@@ -6,15 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'open-uri'
-User.delete_all
-puts 'SETTING UP DEFAULT USER LOGIN'
-user = User.create! :name => 'First User', :email => 'user@example.com', :password => 'please', :password_confirmation => 'please'
-puts 'New user created: ' << user.name
-user2 = User.create! :name => 'Second User', :email => 'user2@example.com', :password => 'please', :password_confirmation => 'please'
-puts 'New user created: ' << user2.name
-user.add_role :admin
-user.add_role :default
-user2.add_role :default
+
+#Create some default journal types
+JournalType.delete_all
+[['Main Site Journal', 'HarvestGeek  Blog'], ['User Journal', 'Blog'], ['Crop Journal', 'Grow Log'], ['Farm Journal', 'Farm Blog']].each do |type|
+		JournalType.create! :description => type[1], :name => type[0]
+	end
+puts 'Journal Types created'
 
 Country.delete_all  
 open("http://openconcept.ca/sites/openconcept.ca/files/country_code_drupal_0.txt") do |countries|  
@@ -84,3 +82,15 @@ State.delete_all
 	end
 
 puts 'State list populated'
+
+
+User.delete_all
+puts 'SETTING UP DEFAULT USER LOGIN'
+user = User.create! :name => 'First User', :email => 'user@example.com', :password => 'please', :password_confirmation => 'please'
+puts 'New user created: ' << user.name
+user2 = User.create! :name => 'Second User', :email => 'user2@example.com', :password => 'please', :password_confirmation => 'please'
+puts 'New user created: ' << user2.name
+user.add_role :admin
+user.add_role :default
+user2.add_role :default
+

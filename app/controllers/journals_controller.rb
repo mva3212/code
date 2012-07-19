@@ -25,7 +25,7 @@ public
     if request.path != (journal_path(@journal) )
 			redirect_to @journal, status: :moved_permanently
 		end
-    respond_with(@journal)
+    respond_with(@journal,@posts)
   end
 
   # GET /journals/new

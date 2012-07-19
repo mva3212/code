@@ -1,5 +1,6 @@
 Harvestgeek::Application.routes.draw do
-   
+  
+
   resources :locations
 
   authenticated :user do

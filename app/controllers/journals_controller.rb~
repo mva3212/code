@@ -10,11 +10,6 @@ end
 public	
 
 
-	# Get journalsbyday
-	def showbyday
-		
-	end
-
   # GET /journals
   # GET /journals.xml
   def index
