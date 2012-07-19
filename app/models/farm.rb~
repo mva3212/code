@@ -1,4 +1,6 @@
 class Farm < ActiveRecord::Base
+	extend FriendlyId
+  friendly_id :name, use: [:slugged,:history]
   resourcify
   belongs_to :state
   belongs_to :region
