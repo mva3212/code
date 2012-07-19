@@ -21,4 +21,5 @@ gem 'country-select'
 gem 'has_scope'
 gem 'high_voltage'
 gem 'friendly_id'
+gem 'geocoder'
 
