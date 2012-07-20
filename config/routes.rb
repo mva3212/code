@@ -1,6 +1,8 @@
 Harvestgeek::Application.routes.draw do
   
 
+  resources :comments
+
   resources :locations
 
   authenticated :user do
@@ -14,7 +16,10 @@ Harvestgeek::Application.routes.draw do
 		resources :journals 
 	end
 	
-	resources :posts
+	resources :posts do
+		resources :comments
+	end
+
 	
    
 	match "/crud_tables/showparams/:message", :to => "crud_tables#showparams"

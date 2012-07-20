@@ -8,7 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
 			## User details
 			t.string :street
-   		t.string :city, 
+   		t.string :city
 			t.references :state
 			t.string :zip
 			t.references :country

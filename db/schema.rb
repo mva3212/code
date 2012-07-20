@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120716011018) do
+ActiveRecord::Schema.define(:version => 20120720011729) do
 
   create_table "climates", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(:version => 20120716011018) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "comments", :force => true do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -137,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20120716011018) do
     t.string   "name"
     t.text     "content"
     t.integer  "journal_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "slug"
@@ -144,6 +156,7 @@ ActiveRecord::Schema.define(:version => 20120716011018) do
 
   add_index "posts", ["journal_id"], :name => "index_posts_on_journal_id"
   add_index "posts", ["slug", "journal_id"], :name => "index_posts_on_slug_and_journal_id"
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "regions", :force => true do |t|
     t.string   "name"
@@ -183,6 +196,13 @@ ActiveRecord::Schema.define(:version => 20120716011018) do
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "street"
+    t.string   "city"
+    t.integer  "state_id"
+    t.string   "zip"
+    t.integer  "country_id"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -195,13 +215,6 @@ ActiveRecord::Schema.define(:version => 20120716011018) do
     t.datetime "updated_at",                             :null => false
     t.string   "name"
     t.string   "slug"
-    t.string   "city"
-    t.integer  "state_id"
-    t.string   "zip"
-    t.integer  "country_id"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "street"
   end
 
   add_index "users", ["country_id"], :name => "index_users_on_country_id"

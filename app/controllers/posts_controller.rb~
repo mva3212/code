@@ -20,6 +20,7 @@ public
   # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new( :post => @post )
     if request.path != post_path(@post)
 			redirect_to @post, status: :moved_permanently
 		end

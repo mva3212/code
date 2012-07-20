@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 
-<% if can? :create, @post %>
+<% if can? :create, Post %>
 	<h2><%= link_to 'Create a New Post', new_post_path( :jid => @journal.id )%></h2>
 <% end %>
+
 
 <% if @posts.nil? || @posts.empty? %>
 	<p> There is nothing here yet </p>

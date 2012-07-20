@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-		@journal = Journal.find(1, :conditions => { :user_id => @user.id, :is_primary => true })
+		@journal = Journal.find(:first, :conditions => { :user_id => @user.id, :is_primary => true })
   end
 
 end
