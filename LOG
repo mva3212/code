@@ -34827,3 +34827,131 @@ Served asset /nav-links.js - 304 Not Modified (0ms)
 
 Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-07-19 23:09:43 -0400
 Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (0ms)
+
+
+Started GET "/journals/test-journal" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Processing by JournalsController#show as HTML
+  Parameters: {"id"=>"test-journal"}
+  [1m[35mJournal Load (1.5ms)[0m  SELECT "journals".* FROM "journals" WHERE "journals"."slug" = 'test-journal' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((name = 'admin') AND (resource_type IS NULL) AND (resource_id IS NULL)))
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((name = 'default') AND (resource_type IS NULL) AND (resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "journals".* FROM "journals" WHERE "journals"."slug" = 'test-journal' LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."journal_id" = 1[0m
+  Rendered journals/show.html.erb within layouts/application (0.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 AND (((name = 'admin') AND (resource_type IS NULL) AND (resource_id IS NULL)))
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 79ms (Views: 66.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.css?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /dataTables/jquery.dataTables.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap_and_overrides.css - 304 Not Modified (10ms)
+
+
+Started GET "/assets/crop.css?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /crop.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /comments.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/journals.css?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /journals.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /locations.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /posts.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /users.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-transition.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap-transition.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-button.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap-button.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-alert.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap-alert.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap-carousel.js - 304 Not Modified (45ms)
+
+
+Started GET "/assets/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap-collapse.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap-modal.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap-modal.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap-scrollspy.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tab.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap-tab.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap-dropdown.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap-tooltip.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-popover.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap-popover.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /bootstrap-typeahead.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/dataTables/jquery.dataTables.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /dataTables/jquery.dataTables.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/nav-links.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /nav-links.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/DT_bootstrap.js?body=1" for 127.0.0.1 at 2012-07-19 23:12:45 -0400
+Served asset /DT_bootstrap.js - 304 Not Modified (0ms)
