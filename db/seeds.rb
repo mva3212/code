@@ -14,16 +14,27 @@ JournalType.delete_all
 	end
 puts 'Journal Types created'
 
+
+
 Country.delete_all  
 open("http://openconcept.ca/sites/openconcept.ca/files/country_code_drupal_0.txt") do |countries|  
   countries.read.each_line do |country|  
     code, name = country.chomp.split("|")  
+	
+	
     Country.create!(:name => name, :code => code)  
   end  
 end  
 puts 'Country list populated'
 
 State.delete_all
+
+us_country = Country.where(:code => "US").first
+
+puts us_country.to_json
+ 
+us_id = us_country.id
+
 # The following will populate the state table from static list.  We should probably change this to pull from a file like above
 [ 	
 	['Select a State', 'None'],
@@ -78,7 +89,7 @@ State.delete_all
 	['West Virginia', 'WV'], 
 	['Wisconsin', 'WI'], 
 	['Wyoming', 'WY']].each do |state|
-		State.create! :code => state[1], :name => state[0]
+		State.create! :code => state[1], :name => state[0], :countryId => us_id
 	end
 
 puts 'State list populated'

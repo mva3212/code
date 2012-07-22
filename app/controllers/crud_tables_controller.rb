@@ -2,16 +2,7 @@ class CrudTablesController < ApplicationController
 
 # GET /crud_tables
 def index
-    
+      redirect_to( :controller => "climates", :action => "index")  
 end
-
-# GET /crud_tables
-def showparams
-
-	@testmessage = "hi!!!!" 
-
-	@message = params[:message] 
-	
-end
-
+ 
 end

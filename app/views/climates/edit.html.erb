@@ -1,6 +1,26 @@
-<h1>Editing climate</h1>
+<h1>Editing climate:  <%= @climate.code %></h1>
 
-<%= render 'form' %>
+<form  method="post"  action="/climates/update/">
 
-<%= link_to 'Show', @climate %> |
-<%= link_to 'Back', climates_path %>
+	<input type="hidden" name="targetId" value="<%= @climate.id %>"/>
+	<div class="control-groups"> 
+		<label class="control-label">Name</label>
+          
+		<input type="text" name="name" value="<%= @climate.name %>"/>
+	</div>   
+	<div class="control-groups"> 
+		<label class="control-label">Description</label>
+          
+		<input type="text" rows="5" name="description" value="<%= @climate.description %>"/>
+	</div>   
+<div class="control-groups"> 
+		<label class="control-label">Code</label>
+          
+		<input type="text" name="code" value="<%= @climate.code %>"/>
+	</div>   
+
+<div class="row-fluid">	
+<input type=submit class="btn btn-primary" value="Save" /> <!--REFACTOR: link -->
+                
+	<a href="/climates/index" class="btn">Cancel</a>
+</form>
