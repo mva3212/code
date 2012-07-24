@@ -69,12 +69,13 @@ ActiveRecord::Schema.define(:version => 20120720011729) do
   create_table "farms", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "region_fk"
-    t.integer  "state_fk"
-    t.integer  "user_fk"
+    t.integer  "user_id"
+    t.string   "slug"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "farms", ["slug"], :name => "index_farms_on_slug"
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -182,6 +183,7 @@ ActiveRecord::Schema.define(:version => 20120720011729) do
   create_table "states", :force => true do |t|
     t.string   "name"
     t.string   "code"
+    t.integer  "country_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

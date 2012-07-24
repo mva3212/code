@@ -9,13 +9,9 @@
 
 <% @farms.each do |farm| %>
   <tr>
-    <td><%= link_to 'Show', farm %></td>
-    <td><%= link_to 'Edit', edit_farm_path(farm) %></td>
-    <td><%= link_to 'Destroy', farm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Farm', new_farm_path %>

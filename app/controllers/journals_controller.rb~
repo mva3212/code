@@ -8,8 +8,6 @@ def set_current_user
 end
 
 public	
-
-
   # GET /journals
   # GET /journals.xml
   def index
@@ -25,14 +23,13 @@ public
     if request.path != (journal_path(@journal) )
 			redirect_to @journal, status: :moved_permanently
 		end
-    respond_with(@journal)
+    respond_with(@journal,@posts)
   end
 
   # GET /journals/new
   # GET /journals/new.xm
 
 	def new
-		@user = current_user
     @journal = Journal.new(:user_id => @user.id)
     respond_with(@user,@journal)
   end

@@ -30,9 +30,8 @@ CrudStateIndex.Init = function () {
 					return r;
 				}
 			},
-            { "aTargets": [1], "mDataProp": "name", "bUseRendered": false, "sName": "Name", "iDataSort ": 2 },   
-			{  "aTargets": [2], "mDataProp": "country_name", "bUseRendered": false, "sName": "Country", "iDataSort ": 3 },
-            {  "aTargets": [2], "mDataProp": "country_id", "bUseRendered": false, "sName": "", "iDataSort ": 3,  "fnRender": function(oObj) {
+            { "aTargets": [1], "mDataProp": "name",  "bUseRendered": false, "sName": "Name", "iDataSort ": 2 },
+            {  "aTargets": [2], "mDataProp": "name", "bUseRendered": false, "sName": "", "iDataSort ": 3,  "fnRender": function(oObj) {
 					var r = '<a class="btn" href='+encodeURI('/states/destroy/' + oObj.aData.id) + '>X</a>';
 					console.log(r);
 					return r;

@@ -7,30 +7,15 @@ class StatesController < ApplicationController
 
   
   def getdata 
-	allstates = State.all 
-	 
-	state_vms = Array.new
-
-	puts allstates
-	allstates.each do |state|
-		country_temp = Country.find(state.country_id)
-		
-		puts state
-		puts country_temp
-		
-		statevm = State_Index_Vm.new :code => state.code, :name => state.name, :country_name => country_temp.name, :id => state.id
-		state_vms.push(statevm)
-	end
+		@allstates = State.all 
 	 
     data = Hash.new
     #pagination - see doc
     data["sEcho"] = params[:sEcho]
-    data["iTotalRecords"] = state_vms.size
-    data["iTotalDisplayRecords"] = state_vms.size
-    data["aaData"] = state_vms.as_json
+    data["iTotalRecords"] =@allstates.size
+    data["iTotalDisplayRecords"] = @allstates.size
+    data["aaData"] = @allstates.as_json
    
-	puts data.to_json
-	
 	render :json => data.to_json
   end
    

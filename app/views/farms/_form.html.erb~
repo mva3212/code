@@ -1,0 +1,14 @@
+<%= simple_form_for([@user,@farm]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :user_id, :as => :hidden, :value => @user.id  %>
+    <%= f.association :state %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

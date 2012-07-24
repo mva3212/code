@@ -8,5 +8,6 @@ class HomeController < ApplicationController
   def show
 		@user = current_user
 		@journals = Journal.find(:all, :conditions => {:user_id => @user.id })
+		@farms = Farm.find(:all, :conditions => {:user_id => @user.id })
   end
 end

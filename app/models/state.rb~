@@ -1,6 +1,4 @@
 class State < ActiveRecord::Base
-	extend FriendlyId
-  friendly_id :name, use: [:slugged,:history]
-  resourcify
-  attr_accessible :code, :name
+  resourcify 
+  attr_accessible :code, :name, :country_id 
 end

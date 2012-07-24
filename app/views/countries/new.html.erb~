@@ -1,0 +1,27 @@
+<h1>New Country</h1>
+
+<%= render 'form' %>
+
+<!-- I question the validity of using a form like this when it is much easier to use the standard rails implementation of _form and new -->
+<!-- I do see the need to write your own forms in the future but I think it is preferrable to pass the object instead of individual parameters,in most case -->
+
+<!--
+<h1>New Country</h1>
+<form  method="post"  action="/countries/create">
+	<div class="control-groups"> 
+		<label class="control-label">Name</label>
+          
+		<input type="text" name="name"/>
+	</div>   
+ 
+<div class="control-groups"> 
+		<label class="control-label">Code</label>
+          
+		<input type="text" name="code"/>
+	</div>   
+
+<div class="row-fluid">	
+<input type=submit class="btn btn-primary" value="Save" /> <!--REFACTOR: link
+                
+	<a href="/countries/index" class="btn">Cancel</a> 
+</form>-->

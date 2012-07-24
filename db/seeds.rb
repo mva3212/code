@@ -37,7 +37,6 @@ us_id = us_country.id
 
 # The following will populate the state table from static list.  We should probably change this to pull from a file like above
 [ 	
-	['Select a State', 'None'],
 	['Alabama', 'AL'], 
 	['Alaska', 'AK'],
 	['Arizona', 'AZ'],
@@ -89,7 +88,7 @@ us_id = us_country.id
 	['West Virginia', 'WV'], 
 	['Wisconsin', 'WI'], 
 	['Wyoming', 'WY']].each do |state|
-		State.create! :code => state[1], :name => state[0], :countryId => us_id
+		State.create! :code => state[1], :name => state[0], :country_id => us_id
 	end
 
 puts 'State list populated'

@@ -3,7 +3,7 @@ class CreateStates < ActiveRecord::Migration
     create_table :states do |t|
       t.string :name
       t.string :code
-
+			t.references :country
       t.timestamps
     end
   end

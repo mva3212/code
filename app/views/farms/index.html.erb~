@@ -1,0 +1,18 @@
+<h1>Listing farms</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @farms.each do |farm| %>
+  <tr>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Farm', new_farm_path %>

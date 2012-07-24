@@ -1,35 +1,35 @@
 class FarmsController < ApplicationController
+load_and_authorize_resource
+before_filter :set_current_user
+
+private
+def set_current_user
+	@user = current_user
+end
+
+public
   # GET /farms
   # GET /farms.json
   def index
     @farms = Farm.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @farms }
-    end
+		respond_with(@users,@farms)
   end
 
   # GET /farms/1
   # GET /farms/1.json
   def show
     @farm = Farm.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @farm }
-    end
+  	if request.path != (farm_path(@farm) )
+			redirect_to @farm, status: :moved_permanently
+		end
+    respond_with(@farm)
   end
 
   # GET /farms/new
   # GET /farms/new.json
   def new
-    @farm = Farm.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @farm }
-    end
+    @farm = Farm.new(:user_id => @user.id)
+    respond_with(@user,@farm)    
   end
 
   # GET /farms/1/edit
@@ -41,16 +41,8 @@ class FarmsController < ApplicationController
   # POST /farms.json
   def create
     @farm = Farm.new(params[:farm])
-
-    respond_to do |format|
-      if @farm.save
-        format.html { redirect_to @farm, notice: 'Farm was successfully created.' }
-        format.json { render json: @farm, status: :created, location: @farm }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @farm.errors, status: :unprocessable_entity }
-      end
-    end
+    @farm.save
+    respond_with(@user,@farm)
   end
 
   # PUT /farms/1

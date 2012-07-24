@@ -1,10 +1,22 @@
 
 <h2> Welcome to your dashboard </h2>
-
-<h4> Add posts or Edit and Existing Journal: </h4>
+<br><br>
+<div class ="row-fluid">
+<div class="span4">
+<h4> Click on a journal to edit </h4>
 <% @journals.each do |j| %>
   <p>Journal: <%=link_to j.name, j %></p>
 <% end %>
 
 <h4> Or <%= link_to "Create a new one", new_user_journal_path([@user]) %> </h4>
+</div>
+<div class="span4">
 
+<h4> Click on a farm to edit</h4>
+<% @farms.each do |f| %>
+  <p>Farm: <%=link_to f.name, f %></p>
+<% end %>
+<h4> Or <%= link_to "Create a new one", new_user_farm_path([@user]) %> </h4>
+
+</div>
+</div>

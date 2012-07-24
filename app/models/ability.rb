@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
     elsif user.has_role? :default
 			can [:manage], Journal, :user_id => user.id	
+			can [:manage], Farm, :user_id => user.id	
 			can [:manage], Post if can? :manage, Journal		
 		else
 			can :read, :all

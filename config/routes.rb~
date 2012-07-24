@@ -1,5 +1,4 @@
 Harvestgeek::Application.routes.draw do
-  
 
   resources :comments
 
@@ -14,13 +13,21 @@ Harvestgeek::Application.routes.draw do
 	
 	resources :users do 
 		resources :journals 
+		resources :farms
 	end
 	
-	resources :posts
-	
-   
-	match "/crud_tables/showparams/:message", :to => "crud_tables#showparams"
+	resources :posts do
+		resources :comments
+	end
+	resources :countries
+
+	match "/farms/:id", :to => "farms#show", :action => :show, :as => "farm"
 	match "/journals/:id", :to => "journals#show", :action => :show, :as => "journal"
+
+
+	match "/:controller/edit/:id", :to => ":controller#edit"
+	match "/:controller/update/:id", :to => ":controller#update"
+	match "/:controller/destroy/:id", :to => ":controller#destroy"
   
 	match "/:controller/:action", :to => ":controller#:action"
 	 
