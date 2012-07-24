@@ -11,16 +11,16 @@ class ClimatesController < ApplicationController
   
   def getdata 
 	@allclimates = Climate.all 
-	 
-	 puts params[:sEcho]
-	 
+	  
     data = Hash.new
     #pagination - see doc
     data["sEcho"] = params[:sEcho]
     data["iTotalRecords"] = @allclimates.size
     data["iTotalDisplayRecords"] = @allclimates.size
     data["aaData"] = @allclimates.as_json
-  
+   
+	puts data.to_json
+	
 	render :json => data.to_json
   end
   # GET /climates/1
@@ -45,20 +45,21 @@ class ClimatesController < ApplicationController
     end
   end
 
-  # GET /climates/1/edit
+ 
   def edit
+	puts params[:id]
     @climate = Climate.find(params[:id])
   end
 
   # POST /climates
   # POST /climates.json
   def create
-    @climate = Climate.new(params[:climate])
+	puts params
+    @climate = Climate.build(params[:code],params[:name],params[:description]);
 
     respond_to do |format|
       if @climate.save
-        format.html { redirect_to @climate, notice: 'Climate was successfully created.' }
-        format.json { render json: @climate, status: :created, location: @climate }
+        format.html { redirect_to(:action => "index") }
       else
         format.html { render action: "new" }
         format.json { render json: @climate.errors, status: :unprocessable_entity }
@@ -69,15 +70,22 @@ class ClimatesController < ApplicationController
   # PUT /climates/1
   # PUT /climates/1.json
   def update
-    @climate = Climate.find(params[:id])
-
+   
+   puts params
+    @climate = Climate.find(params[:targetId])
+ 
+    data = Hash.new
+    #pagination - see doc
+    data["code"] = params[:code]  
+    data["name"] = params[:name]  
+    data["description"] = params[:description]  
+	
     respond_to do |format|
-      if @climate.update_attributes(params[:climate])
-        format.html { redirect_to @climate, notice: 'Climate was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @climate.errors, status: :unprocessable_entity }
+      if @climate.update_attributes(data)
+        format.html { redirect_to(:action => "index") }
+      else 
+	    puts @climate.errors
+        format.html { redirect_to(:action => "edit", :id => (params[:targetId])) }
       end
     end
   end
@@ -86,11 +94,7 @@ class ClimatesController < ApplicationController
   # DELETE /climates/1.json
   def destroy
     @climate = Climate.find(params[:id])
-    @climate.destroy
-
-    respond_to do |format|
-      format.html { redirect_to climates_url }
-      format.json { head :no_content }
-    end
+    @climate.destroy 
+    redirect_to(:action => "index")  
   end
 end

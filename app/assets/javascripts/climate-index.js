@@ -24,9 +24,20 @@ CrudClimateIndex.Init = function () {
         "sAjaxSource": "/climates/getdata",
         "aaSorting":[[1,"asc"]],
         "aoColumnDefs": [ 
-            { "aTargets": [0], "mDataProp": "code", "sName": "Code", "iDataSort ": 1 },
+            { "aTargets": [0], "mDataProp": "code", "bUseRendered": false, "sName": "Code", "iDataSort ": 1, "fnRender": function(oObj) {
+					 var r= '<a href='+encodeURI('/climates/edit/' + oObj.aData.id) + '>' + oObj.aData.code + '</a>';
+				 
+					return r;
+				}
+			},
             { "aTargets": [1], "mDataProp": "name", "sName": "Name", "iDataSort ": 2 },
-            { "aTargets": [2], "mDataProp": "description", "sName": "Description", "iDataSort ": 3 },
+            { "aTargets": [2], "mDataProp": "description", "bUseRendered": false,  "sName": "Description", "iDataSort ": 3  },
+            {  "aTargets": [3], "mDataProp": "description", "bUseRendered": false, "sName": "", "iDataSort ": 3,  "fnRender": function(oObj) {
+					var r = '<a class="btn" href='+encodeURI('/climates/destroy/' + oObj.aData.id) + '>X</a>';
+					console.log(r);
+					return r;
+				}
+			} 
         ],
         "fnServerParams": function ( aoData ) {
             aoData.push( { "name": "Filter", "value": CrudClimateIndex.filter } );
@@ -39,12 +50,12 @@ CrudClimateIndex.Init = function () {
      $("#dataTable_filter").hide();
      $("#dataTable_length").hide();
 
-     $('#climate-filter-text').val("");
+     $('#filter-text').val("");
 };
 
 CrudClimateIndex.EnactFilter = function ()
 {
-    var temp = $('#climate-filter-text').val();
+    var temp = $('#filter-text').val();
 
     console.log(temp);
 
