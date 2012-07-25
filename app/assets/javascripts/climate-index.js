@@ -32,7 +32,7 @@ CrudClimateIndex.Init = function () {
 			},
             { "aTargets": [1], "mDataProp": "name", "sName": "Name", "iDataSort ": 2 },
             { "aTargets": [2], "mDataProp": "description", "bUseRendered": false,  "sName": "Description", "iDataSort ": 3  },
-            {  "aTargets": [3], "mDataProp": "description", "bUseRendered": false, "sName": "", "iDataSort ": 3,  "fnRender": function(oObj) {
+            {  "aTargets": [3], "mDataProp": "description", "bUseRendered": false,  "bSortable": false, "fnRender": function(oObj) {
 					var r = '<a class="btn" href='+encodeURI('/climates/destroy/' + oObj.aData.id) + '>X</a>';
 					console.log(r);
 					return r;
