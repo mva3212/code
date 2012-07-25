@@ -168,7 +168,7 @@ DEPENDENCIES
   jquery-rails
   paperclip
   pg
-  rails (= 3.2.6)
+  rails
   responders
   rolify (>= 3.1.0)
   rspec-rails (>= 2.10.1)

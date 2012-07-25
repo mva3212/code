@@ -19,7 +19,9 @@ public
   # GET /farms/1.json
   def show
     @farm = Farm.find(params[:id])
-  
+  	if request.path != (farm_path(@farm) )
+			redirect_to @farm, status: :moved_permanently
+		end
     respond_with(@farm)
   end
 

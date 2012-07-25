@@ -42,7 +42,7 @@ public
   def create
     @farm = Farm.new(params[:farm])
     @farm.save
-    respond_with(@user,@farm)
+    respond_with(@farm)
   end
 
   # PUT /farms/1
