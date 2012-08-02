@@ -1,4 +1,4 @@
-class HarvestDetails < ActiveRecord::Bases
+class HarvestDetails < ActiveRecord::Base
   resourcify
   belongs_to :crop
   belongs_to :yield_unit 

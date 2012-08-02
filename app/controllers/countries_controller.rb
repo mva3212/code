@@ -15,7 +15,7 @@ class CountriesController < ApplicationController
     data["iTotalDisplayRecords"] = @allcountries.size
     data["aaData"] = @allcountries.as_json
 		
-	respond_with(data) # respond with should be used in preference to render :json
+		respond_with(data) # respond with should be used in preference to render :json
   end
    
   # GET /countries/new
