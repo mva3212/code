@@ -1,0 +1,25 @@
+<h1>New Charge</h1>
+
+
+<div class=".payment-errors"></div>
+
+<form action="REPLACE WITH AN ACTUAL URL HELPER" method="post" id="stripe-form">
+    <div class="formset">
+        <label>Card Number</label>
+        <input type="text" size="20" autocomplete="off" class="credit-number" />
+    </div>
+
+    <div class="formset">
+        <label>Security Code/CVC</label>
+        <input type="text" size="4" autocomplete="off" class="credit-scurity" />
+    </div>
+
+    <div class="formset">
+        <label>Expiration (MM/YYYY)</label>
+        <input type="text" size="2" class="card-expiry-month"/>
+        <span> / </span>
+        <input type="text" size="4" class="card-expiry-year"/>
+    </div>
+
+    <button type="submit" class="submit">Submit Payment</button>
+</form>

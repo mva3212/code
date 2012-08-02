@@ -11,7 +11,14 @@
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "nav-links" %> 
     <%= javascript_include_tag "DT_bootstrap" %> 
- 
+ 		<script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+		<script type="text/javascript">
+    // this identifies your website in the createToken call below
+    
+		Stripe.setPublishableKey('pk_ezRa36IlEdGpI3YSptXfrfPUbapWf');
+   
+		</script>
+
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>

@@ -22,7 +22,7 @@ Harvestgeek::Application.routes.draw do
 
 	match "/farms/:id", :to => "farms#show", :action => :show, :as => "farm"
 	match "/journals/:id", :to => "journals#show", :action => :show, :as => "journal"
-
+	match "/payments/new", :to => "payments#new"
 
 	match "/:controller/edit/:id", :to => ":controller#edit"
 	match "/:controller/update/:id", :to => ":controller#update"

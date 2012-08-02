@@ -3,11 +3,11 @@ class CreateFarms < ActiveRecord::Migration
     create_table :farms do |t|
       t.string :name
       t.string :description
-      t.integer :user_id
+      t.references :user
 			t.string :slug
       t.timestamps
     end
-
+		add_index :farms, :user_id
     add_index :farms, :slug
   end
 end

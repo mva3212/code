@@ -6,5 +6,6 @@ class CreateStates < ActiveRecord::Migration
 			t.references :country
       t.timestamps
     end
+		add_index :states, :country_id
   end
 end

@@ -1,3 +1,0 @@
-class State_Index_Vm  
-  attr_accessible :code, :name, :country, :id,  
-end

@@ -3,8 +3,8 @@ class CreateRegions < ActiveRecord::Migration
     create_table :regions do |t|
       t.string :name
       t.string :description
-      t.integer :climate_id
-      t.integer :country_id
+      t.references :climate
+      t.references :country
       t.string :code
 
       t.timestamps

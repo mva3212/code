@@ -19,7 +19,6 @@ Harvestgeek::Application.routes.draw do
 	resources :posts do
 		resources :comments
 	end
-	resources :countries
 
 	match "/farms/:id", :to => "farms#show", :action => :show, :as => "farm"
 	match "/journals/:id", :to => "journals#show", :action => :show, :as => "journal"

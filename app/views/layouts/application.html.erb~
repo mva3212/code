@@ -11,7 +11,14 @@
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "nav-links" %> 
     <%= javascript_include_tag "DT_bootstrap" %> 
- 
+ 		<script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+		<script type="text/javascript">
+    // this identifies your website in the createToken call below
+    
+		Stripe.setPublishableKey('pk_ezRa36IlEdGpI3YSptXfrfPUbapWf');
+   
+		<	/script>
+
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
@@ -25,11 +32,18 @@
       </nav>
     </header>
     <div id="main" role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+            <div class="span12">
               <%= render 'layouts/messages' %>
               <%= yield %>
-            
+            </div>
+          </div>
           <footer>
           </footer>
+        </div>
+      </div> <!--! end of .container -->
     </div> <!--! end of #main -->
   </body>
 </html>

@@ -6,9 +6,10 @@ class CreateJournals < ActiveRecord::Migration
       t.references :user
       t.references :journal_type
       t.boolean :is_primary
-
+			t.string :slug
       t.timestamps
     end
+    add_index :journals, :slug
     add_index :journals, :user_id
     add_index :journals, :journal_type_id
   end
