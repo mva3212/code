@@ -25,18 +25,25 @@ CrudStateIndex.Init = function () {
         "aaSorting":[[1,"asc"]],
         "aoColumnDefs": [ 
             { "aTargets": [0], "mDataProp": "code", "bUseRendered": false, "sName": "Code", "iDataSort ": 1, "fnRender": function(oObj) {
-					 var r= '<a href='+encodeURI('/states/edit/' + oObj.aData.id) + '>' + oObj.aData.code + '</a>';
+					 var r= '<a href='+encodeURI('/states/edit/' + oObj.aData.state_id) + '>' + oObj.aData.code + '</a>';
 				 
 					return r;
 				}
 			},
             { "aTargets": [1], "mDataProp": "name",  "bUseRendered": false, "sName": "Name", "iDataSort ": 2 },
-            {  "aTargets": [2], "mDataProp": "name", "bUseRendered": false, "sName": "", "iDataSort ": 3,  "fnRender": function(oObj) {
-					var r = '<a class="btn" href='+encodeURI('/states/destroy/' + oObj.aData.id) + '>X</a>';
+             { "aTargets": [2], "mDataProp": "country_name",  "bUseRendered": false, "sName": "Country", "iDataSort ": 3 },
+            {  "aTargets": [3], "mDataProp": "can_delete", "bUseRendered": false, "bSortable": false, "sName": "", "iDataSort ": 3,  "fnRender": function(oObj) {
+			 
+					var r = "";
+					if(oObj.aData.can_delete==true)
+					{
+							r = '<a class="btn" href='+encodeURI('/states/destroy/' + oObj.aData.state_id) + '>X</a>';
+					}
 					console.log(r);
 					return r;
 				}
 			} 
+			
         ],
         "fnServerParams": function ( aoData ) {
             aoData.push( { "name": "Filter", "value": CrudStateIndex.filter } );

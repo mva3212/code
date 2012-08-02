@@ -8,6 +8,7 @@ group :assets do
   gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'jquery-rails'
 end
+gem 'will_paginate', '~> 3.0.0'
 gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
 gem "factory_girl_rails", ">= 3.3.0", :group => [:development, :test]
 gem "email_spec", ">= 1.2.1", :group => :test
@@ -19,7 +20,7 @@ gem 'responders'
 gem 'paperclip'
 gem 'simple_form'
 gem 'country-select'
-gem 'has_scope'
+gem 'has_scope' 
 gem 'high_voltage'
 gem 'friendly_id'
 gem 'geocoder'

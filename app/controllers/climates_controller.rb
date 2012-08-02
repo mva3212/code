@@ -23,26 +23,11 @@ class ClimatesController < ApplicationController
 	
 	render :json => data.to_json
   end
-  # GET /climates/1
-  # GET /climates/1.json
-  def show
-    @climate = Climate.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @climate }
-    end
-  end
-
+  
   # GET /climates/new
   # GET /climates/new.json
-  def new
-    @climate = Climate.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @climate }
-    end
+  def new  
+      
   end
 
  
@@ -54,8 +39,10 @@ class ClimatesController < ApplicationController
   # POST /climates
   # POST /climates.json
   def create
+  
 	puts params
-    @climate = Climate.build(params[:code],params[:name],params[:description]);
+	
+    @climate = Climate.new :code => params[:code], :name => params[:name], :description => params[:description]
 
     respond_to do |format|
       if @climate.save
