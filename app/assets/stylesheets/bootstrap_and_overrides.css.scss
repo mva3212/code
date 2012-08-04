@@ -4,3 +4,27 @@ $iconWhiteSpritePath: asset-url('glyphicons-halflings-white.png', image);
 @import "bootstrap";
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
+
+footer[role="contentinfo"] {
+	padding: 15px 0 0 0;
+	border-top: 1px solid #ddd;
+	}
+footer[role="contentinfo"] nav ul li {
+	display: inline;
+	margin: 0 10px 0 0;
+	padding: 0 10px 0 0;
+	font-weight: bold;
+	border-right: 1px solid #ccc;
+	}
+footer[role="contentinfo"] nav ul li:last-child {
+	margin: 0;
+	padding: 0;
+	border: none;
+	}
+footer[role="contentinfo"] p {
+	margin: 10px 0;
+	}				
+.clearfooter {
+height: 30px;
+clear: both;
+}

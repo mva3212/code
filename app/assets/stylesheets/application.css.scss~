@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require dataTables/jquery.dataTables
  *= require_tree .
 */
 
@@ -23,3 +24,24 @@
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   box-shadow: 0 1px 2px rgba(0,0,0,.15);
 }
+
+.footer {
+	padding: 15px 0 0 0;
+	font-size: 60px;
+	border-top: 1px solid #ddd;
+	}
+.footer nav ul li {
+	display: inline;
+	margin: 0 10px 0 0;
+	padding: 0 10px 0 0;
+	font-weight: bold;
+	border-right: 1px solid #ccc;
+	}
+.footer nav ul li:last-child {
+	margin: 0;
+	padding: 0;
+	border: none;
+	}
+.footer p {
+	margin: 10px 0;
+	}

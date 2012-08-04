@@ -1,32 +1,38 @@
-<ul class="nav">
-    <li class="nav-link" data-nav-link-id="admin" data-nav-link-group="main">
-		<%= link_to "Crud Tables", :action => 'index', :controller => '/crud_tables'  %>
-    </li> 
-
-
-  <% if user_signed_in? %>
-    <li class='pull-right'>
-    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
-    </li>
-  <% else %>
-    <li class='pull-right'>
-    <%= link_to 'Login', new_user_session_path %>  
-    </li>
-  <% end %>
-  <% if user_signed_in? %>
-    <li class='pull-right'>
-    <%= link_to 'Edit account', edit_user_registration_path %>
-    </li>
-    <% if current_user.has_role? :admin %>
-      <li class='pull-right'>
-      <%= link_to 'Admin', users_path %>
-      </li>
-    <% end %>
-  <% else %>
-    <li class='pull-right'>
-    <%= link_to 'Sign up', new_user_registration_path %>
-    </li>
-  <% end %>
-</ul>
+<header class="navbar">
+  <nav class="navbar-inner">
+    <div class="container-fluid margincruncher">
+      <%= link_to "Harvestgeek", root_path, :class => 'brand' %>
+      <ul class="nav">
+          <li class="nav-link" data-nav-link-id="admin" data-nav-link-group="main">
+            <%= link_to "Crud Tables", :action => 'index', :controller => '/crud_tables'  %>
+          </li>
+          <% if user_signed_in? %>
+           <li class='pull-right'>
+              <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
+           </li>           
+          <% else %>          
+          <li class='pull-right'>
+            <%= link_to 'Login', new_user_session_path %>  
+          </li>
+          <% end %>
+          
+          <% if user_signed_in? %>
+            <li class='pull-right'>
+              <%= link_to 'Edit account', edit_user_registration_path %>
+            </li>
+            <% if current_user.has_role? :admin %>
+              <li class='pull-right'>
+               <%= link_to 'Admin', users_path %>
+              </li>
+            <% end %>
+          <% else %>
+            <li class='pull-right'>
+              <%= link_to 'Sign up', new_user_registration_path %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+    </nav> 
+</header>
 
 

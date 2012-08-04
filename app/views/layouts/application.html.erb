@@ -8,42 +8,69 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "nav-links" %> 
-    <%= javascript_include_tag "DT_bootstrap" %> 
- 		<script type="text/javascript" src="https://js.stripe.com/v1/"></script>
-		<script type="text/javascript">
-    // this identifies your website in the createToken call below
-    
-		Stripe.setPublishableKey('pk_ezRa36IlEdGpI3YSptXfrfPUbapWf');
-   
-		</script>
-
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
+
   <body>
-    <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container-fluid margincruncher">
-			<%= link_to "Harvestgeek", root_path, :class => 'brand' %>
-            <%= render 'layouts/navigation' %>
-        </div>
-      </nav>
-    </header>
-    <div id="main" role="main">
+    <div id="main" role="main" style="position: absolute;
+top: 0px;">
       <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
-              <%= yield %>
-            </div>
-          </div>
-          <footer>
-          </footer>
-        </div>
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
+        <div class="row">
+            <div class="span7 offset2">              
+               <div class="well">
+                  <center> LOGO AREA</center>
+                </div><!--/well-->
+                <%= render 'layouts/navigation' %>
+                </div>
+                <div class="span3"></div>
+                </div>                
+                <div class="row">
+                <div class="span2"> 
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Sidebar</li>
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+          </div><!--/.well -->
+           </div>
+                <div class= "span7">
+          <%= render 'layouts/messages' %>
+                 <div class="well">
+                 <%= yield %>
+              </div>
+              </div>
+               <div class="span3">
+    <div class="well"> Featured Content/Article
+    </div>
+  </div>
+              </div> <!--endrowfluid-->
+
+      </div><!-- End Container-->
+    
+
+    <div class="clearfooter"></div>
+    
+    <footer role="contentinfo">
+			<nav role="navigation">
+				<ul>
+					<li><a href="#">Ipsum Link</a></li>
+					<li><a href="#">Lorem link</a></li>
+					<li><a href="#">Dolor link two</a></li>
+				</ul>
+			</nav>		
+			<p>Copyright © 2012 HarvestGeek All rights reserved.</p>
+		</footer>
+		</div>  <!-- End Main-->
+		<%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "nav-links" %> 
+    <%= javascript_include_tag "DT_bootstrap" %> 
+ 		<script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+    <script type="text/javascript">	Stripe.setPublishableKey('pk_ezRa36IlEdGpI3YSptXfrfPUbapWf');  	</script>
   </body>
+		
+				
 </html>

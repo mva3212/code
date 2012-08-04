@@ -1,5 +1,5 @@
-<h3>Browse</h3>
-<% @journals.each do |j| %>
-  <p>Journal: <%=link_to j.name, j %></p>
-<% end %>
-<p>Message: <%=j.text%></p>
+
+      HarvestGeek aims to be a modern day farmer's almanac, complete with how-to's, conventional wisdom, best practices, and lots of crowdsourced 				knowledge from both experts and novices.  We're building a community of seasoned agriculturalists and beginner growers by providing the information one needs to succeed in modern day farming
+
+
+
