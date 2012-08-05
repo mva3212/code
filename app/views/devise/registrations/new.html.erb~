@@ -14,16 +14,16 @@
   <div><%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %></div>
 
-	<p><%= f.label :street %>
-	<%= f.text_field :street %></p>
-
-	<p><%= f.label :city %>
-	<%= f.text_field :city %></p>
+	<div><%= f.label :street %>
+	<%= f.text_field :street %></div>
+	
+	<div><%= f.label :city %>
+	<%= f.text_field :city %></div>
 
 	<%= f.association :state %>
 
-	<p><%= f.label :zip %>
-	<%= f.text_field :zip %></p>
+	<div><%= f.label :zip %>
+	<%= f.text_field :zip %></div>
 
 	<%= f.association :country %>
 

@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
 	def address
  	 [street, city, state_id, zip, country_id].compact.join(', ')
 	end
+	
 	def address_changed?
  	 street_changed? || city_changed? || state_id_changed? || zip_changed? || country_id_changed?
 	end

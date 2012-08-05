@@ -25,4 +25,4 @@ gem 'high_voltage'
 gem 'friendly_id'
 gem 'geocoder'
 gem 'stripe'
-
+gem 'taps'
