@@ -10,8 +10,11 @@
  *
  *= require_self
  *= require dataTables/jquery.dataTables
+ *= require bootstrap
  *= require_tree 
 */
+
+body { padding-top: 60px; }
 
 .content {
   background-color: #eee;

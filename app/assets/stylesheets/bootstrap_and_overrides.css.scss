@@ -1,9 +1,6 @@
 // Set the correct sprite paths
 $iconSpritePath: asset-url('glyphicons-halflings.png', image);
 $iconWhiteSpritePath: asset-url('glyphicons-halflings-white.png', image);
-@import "bootstrap";
-body { padding-top: 60px; }
-@import "bootstrap-responsive";
 
 footer[role="contentinfo"] {
 	padding: 15px 0 0 0;
@@ -28,3 +25,4 @@ footer[role="contentinfo"] p {
 height: 30px;
 clear: both;
 }
+

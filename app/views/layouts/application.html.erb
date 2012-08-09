@@ -7,7 +7,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Harvestgeek" %></title>
     <meta name="description" content="">
     <meta name="author" content="">
-    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag "application", media="all" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
@@ -68,6 +68,16 @@ top: 0px;">
 		<%= javascript_include_tag "application" %>
     <%= javascript_include_tag "nav-links" %> 
     <%= javascript_include_tag "DT_bootstrap" %> 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+     $(document).ready(function()
+      {
+      //Handles menu drop down
+      $('.dropdown-menu').find('form').click(function (e) {
+            e.stopPropagation();
+             });
+      });
+    </script>
  		<script type="text/javascript" src="https://js.stripe.com/v1/"></script>
     <script type="text/javascript">	Stripe.setPublishableKey('pk_ezRa36IlEdGpI3YSptXfrfPUbapWf');  	</script>
   </body>

@@ -1,5 +1,7 @@
 Harvestgeek::Application.routes.draw do
 
+  resources :products
+
   resources :comments
 
   resources :locations
@@ -7,6 +9,11 @@ Harvestgeek::Application.routes.draw do
   authenticated :user do
     root :to => 'home#show'
   end
+  
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+  end
+
   root :to => "home#index"
   devise_for :users
 	resources :users, :only => [:show, :index] 

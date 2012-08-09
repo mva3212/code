@@ -1,9 +1,6 @@
 // Set the correct sprite paths
 $iconSpritePath: asset-url('glyphicons-halflings.png', image);
 $iconWhiteSpritePath: asset-url('glyphicons-halflings-white.png', image);
-@import "bootstrap";
-body { padding-top: 60px; }
-@import "bootstrap-responsive";
 
 footer[role="contentinfo"] {
 	padding: 15px 0 0 0;
@@ -23,8 +20,14 @@ footer[role="contentinfo"] nav ul li:last-child {
 	}
 footer[role="contentinfo"] p {
 	margin: 10px 0;
-	}				
+	}
 .clearfooter {
 height: 30px;
 clear: both;
 }
+
+// All bootstrap variables and overrides need to be defined above the bootstrap import in order to take precedence
+
+@import "bootstrap";
+body { padding-top: 60px; }
+@import "bootstrap-responsive";

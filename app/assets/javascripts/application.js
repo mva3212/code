@@ -12,5 +12,5 @@
 // 
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
-//= require dataTables/jquery.dataTables 
+//= require bootstrap-dropdown
+//= require dataTables/jquery.dataTables
