@@ -18,25 +18,16 @@
               <b class="caret"></b>
             </a>
             <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-            <%= render :partial => "devise/sessions/login" %>
-    
-             
+            <%= render :partial => "devise/sessions/login" %>             
             </div>
           </li>
-        </ul>
+        
         </li>
           <% if user_signed_in? %>
            <li class='pull-right'>
               <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
-           </li>           
-          <% else %>          
-          <li class='pull-right'>
-            <%= link_to 'Sign in', new_user_session_path %>  	          
-          </li>
-          <% end %>
-          
-          <% if user_signed_in? %>
-            <li class='pull-right'>
+           </li>
+           <li>
               <%= link_to 'Edit account', edit_user_registration_path %>
             </li>
             <% if current_user.has_role? :admin %>
@@ -44,11 +35,7 @@
                <%= link_to 'Admin', users_path %>
               </li>
             <% end %>
-          <% else %>
-            <li class='pull-right'>
-              <%= link_to 'Sign up', new_user_registration_path %>
-            </li>
-          <% end %>
+            <% end %>         
           </ul>
         </div>
     </nav>   <script>

@@ -17,7 +17,7 @@
 top: 0px;">
       <div class="container">
         <div class="row">
-            <div class="span7 offset2">              
+            <div class="span7 offset3">              
                <div class="well">
                   <center> LOGO AREA</center>
                 </div><!--/well-->
@@ -26,7 +26,7 @@ top: 0px;">
                 <div class="span3"></div>
                 </div>                
                 <div class="row">
-                <div class="span2"> 
+                <div class="span2 offset1"> 
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
@@ -51,7 +51,7 @@ top: 0px;">
 
       </div><!-- End Container-->
     
-
+<center>
     <div class="clearfooter"></div>
     
     <footer role="contentinfo">
@@ -63,13 +63,23 @@ top: 0px;">
 				</ul>
 			</nav>		
 			<p>Copyright © 2012 HarvestGeek All rights reserved.</p>
-		</footer>
+		</footer></center>
 		</div>  <!-- End Main-->
 		<%= javascript_include_tag "application" %>
     <%= javascript_include_tag "nav-links" %> 
     <%= javascript_include_tag "DT_bootstrap" %> 
+    <%= javascript_include_tag "bootstrap-dropdown" %> 
+    <%= javascript_include_tag "bootstrap-responsive" %> 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-
+    <script>
+     $(document).ready(function()
+      {
+      //Handles menu drop down
+      $('.dropdown-menu').find('form').click(function (e) {
+            e.stopPropagation();
+             });
+      });
+    </script>
  		<script type="text/javascript" src="https://js.stripe.com/v1/"></script>
     <script type="text/javascript">	Stripe.setPublishableKey('pk_ezRa36IlEdGpI3YSptXfrfPUbapWf');  	</script>
   </body>
