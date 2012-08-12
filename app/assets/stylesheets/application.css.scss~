@@ -14,7 +14,8 @@
 */
 
 body { padding-top: 60px; }
-
+input[id=user_remember_me] {padding: 15px; padding-bottom: 0px; float: left;}
+input[name=commit]{ btn btn-primary; }
 .content {
   background-color: #eee;
   padding: 20px;
