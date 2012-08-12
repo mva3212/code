@@ -35,7 +35,7 @@
                <%= link_to 'Admin', users_path %>
               </li>
             <% end %>
-            <% end %>         
+            <% end %>
           </ul>
         </div>
     </nav>   <script>
