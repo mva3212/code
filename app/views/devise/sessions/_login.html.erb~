@@ -1,0 +1,9 @@
+<%= form_for("user", :url => user_session_path, :html => { :class => "login"}) do |f| %>
+  <%= f.text_field :email %>
+  <%= f.password_field :password %>
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me%>
+  <div>
+  <%= f.submit 'Sign in' %>
+  float: right<%= link_to "Not a Member?", new_user_registration_path %></div>
+<% end %>

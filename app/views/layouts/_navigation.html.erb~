@@ -11,9 +11,10 @@
               <%= link_to 'Products', products_path %>        
            </li>
            
-          <li class="divider-vertical"></li>
-          <li class="drop down">
-            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+          <% if !user_signed_in? %>
+          <li class="divider-vertical "></li>
+          <li class="drop down ">
+            <a class="dropdown-toggle pull-right" href="#" data-toggle="dropdown">
               Sign In 
               <b class="caret"></b>
             </a>
@@ -21,7 +22,7 @@
             <%= render :partial => "devise/sessions/login" %>             
             </div>
           </li>
-        
+          <% end %>
         </li>
           <% if user_signed_in? %>
            <li class='pull-right'>
